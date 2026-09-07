@@ -3,72 +3,131 @@
 **Effective Date:** September 7, 2026  
 **Last Updated:** September 7, 2026  
 **Application:** CleanMyPhone: Smart Cleaner  
-**Developer:** Mobile App Zone  
+**Developer:** CleanMyPhone Team  
 **Contact Email:** mobileplaystorework@gmail.com
 
 ---
 
-### 1. Introduction & Overview
-Welcome to CleanMyPhone ("we", "our", or "us"). We are committed to protecting your privacy and ensuring you have complete control over your device's data. 
+## 1. Introduction & Overview
 
-CleanMyPhone is engineered as a 100% On-Device, Privacy-First Storage Utility. All file indexing, duplicate photo detection, cache scanning, and storage analysis are performed strictly on your physical Android device. We do not collect, store, transmit, sell, or share any of your personal files, photos, videos, documents, or personal data with any third parties or remote servers.
+Welcome to **CleanMyPhone** ("we", "our", or "us"). We are committed to protecting your privacy and ensuring you have complete control over your device's data. 
 
----
+CleanMyPhone is engineered as a **100% On-Device, Privacy-First Storage Utility**. All file indexing, duplicate photo detection, cache scanning, and storage analysis are performed strictly on your physical Android device. **We do not collect, store, transmit, sell, or share any of your personal files, photos, videos, documents, or personal data with any third parties or remote servers.**
 
-### 2. Information We Process & How It Is Used
-CleanMyPhone operates under strict Data Minimization principles. The application processes device data locally in temporary RAM to provide storage management utilities:
-- Photos & Media: Analyzed locally using on-device image hashing algorithms to detect duplicate photos and burst shots. Never uploaded or shared off-device.
-- Videos & Heavy Files: Read locally to calculate file sizes, durations, and formats for clutter management. Never leaves your device.
-- System Cache & Temp Files: Scanned in local public/external storage directories to calculate recoverable space. Never leaves your device.
-- Installed Applications: Package metadata (app name, package ID, APK size, install date, last used timestamp) is read to identify large or inactive apps. Never leaves your device.
-- System RAM & CPU Metrics: Read in real time from Android Linux system kernels (/proc/stat, ActivityManager) to display live device performance. Never leaves your device.
-- Network Speed / Bandwidth: Live data transfer rates are calculated via TrafficStats to provide the real-time speedometer tool. Never leaves your device.
-- User Preferences: Scan settings, dark mode preferences, and notification toggles are stored locally using Android DataStore / SharedPreferences.
+By downloading, installing, or using CleanMyPhone, you agree to the practices described in this Privacy Policy.
 
 ---
 
-### 3. Permissions & Justification
-- All Files Access (MANAGE_EXTERNAL_STORAGE): Required on Android 11+ to scan, index, and delete residual junk files, obsolete APK installers, orphan cache files, duplicate downloads, and large files across the internal shared storage. Only files explicitly confirmed by the user in the Cleanup Basket are modified or deleted.
-- Read Media Permissions (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, READ_EXTERNAL_STORAGE): Allows the app to display photo thumbnails, group identical/burst photos for review, and list large video files. Media files are never uploaded or indexed off-device.
-- Query All Packages (QUERY_ALL_PACKAGES) & Usage Stats (PACKAGE_USAGE_STATS): Powers the Applications Hub and Inactive Apps Manager by calculating storage consumed by installed applications and identifying apps unused for 30+ days.
-- Accessibility Service (BIND_ACCESSIBILITY_SERVICE): An optional, user-initiated utility that automates navigating to system App Info screens to clear app cache files for user-selected applications. The service is disabled by default, active only during user-initiated cache clearing, and never captures, stores, or transmits keystrokes, passwords, or personal screen content.
-- Notifications (POST_NOTIFICATIONS): Used solely to deliver local alerts when recoverable storage exceeds user-defined limits or when a scan finishes.
+## 2. Information We Process & How It Is Used
+
+CleanMyPhone operates under strict **Data Minimization** principles. The application processes device data locally in temporary RAM to provide storage management utilities.
+
+| Data Type | How It Is Processed | Is Data Uploaded or Shared? |
+|---|---|---|
+| **Photos & Media** | Analyzed locally using on-device image hashing algorithms to detect duplicate photos and burst shots. | **No.** Never leaves your device. |
+| **Videos & Heavy Files** | Read locally to calculate file sizes, durations, and formats for clutter management. | **No.** Never leaves your device. |
+| **System Cache & Temp Files** | Scanned in local public/external storage directories to calculate recoverable space. | **No.** Never leaves your device. |
+| **Installed Applications** | Package metadata (app name, package ID, APK size, install date, last used timestamp) is read to identify large or inactive apps. | **No.** Never leaves your device. |
+| **System RAM & CPU Metrics** | Read in real time from Android Linux system kernels (`/proc/stat`, `ActivityManager`) to display live device performance. | **No.** Never leaves your device. |
+| **Network Speed / Bandwidth** | Live data transfer rates are calculated via `TrafficStats` to provide the real-time speedometer tool. | **No.** Never leaves your device. |
+| **User Preferences** | Scan settings, dark mode preferences, and notification toggles are stored locally using Android `DataStore` / `SharedPreferences`. | **No.** Stored strictly in local app sandbox. |
 
 ---
 
-### 4. Third-Party Services & Analytics
-- No Third-Party Tracking SDKs: We do not embed analytics SDKs (such as Google Analytics, Firebase Analytics, Facebook SDK, AppsFlyer) that track your behavior.
-- No Advertising Networks: CleanMyPhone does not contain third-party ad networks or data brokers.
-- No Remote Telemetry: We do not collect crash logs or diagnostic reports containing personally identifiable information.
+## 3. Permissions & Justification
+
+To perform core storage management and cleaning tasks, CleanMyPhone requests specific Android permissions. Each permission is strictly used for its declared user-facing feature:
+
+### 3.1. All Files Access (`MANAGE_EXTERNAL_STORAGE`)
+- **Android Versions:** Android 11 (API 30) and above
+- **Purpose:** Required to scan, index, and delete residual junk files, obsolete APK installers, orphan cache files, duplicate downloads, and large files across the internal shared storage.
+- **Privacy Assurance:** Only files explicitly selected or confirmed by the user in the Cleanup Basket are modified or deleted.
+
+### 3.2. Read Media Permissions (`READ_MEDIA_IMAGES`, `READ_MEDIA_VIDEO`, `READ_MEDIA_AUDIO`, `READ_EXTERNAL_STORAGE`)
+- **Android Versions:** Android 13 (API 33)+ and legacy versions
+- **Purpose:** Allows the app to display photo thumbnails, group identical/burst photos for review, and list large video files.
+- **Privacy Assurance:** Media files are never uploaded, backed up, or indexed off-device.
+
+### 3.3. Query All Packages (`QUERY_ALL_PACKAGES`) & Usage Stats (`PACKAGE_USAGE_STATS`)
+- **Purpose:** Powers the Applications Hub and Inactive Apps Manager by calculating storage consumed by installed applications and identifying apps unused for 30+ days.
+- **Privacy Assurance:** No application usage profiling or telemetry is exported.
+
+### 3.4. Accessibility Service (`BIND_ACCESSIBILITY_SERVICE`)
+- **Purpose:** An optional, user-initiated utility that automates navigating to system App Info screens to clear app cache files for user-selected applications.
+- **Privacy Assurance:** 
+  - The accessibility service is **disabled by default** and requires explicit system activation.
+  - It is active **only** during an active cache-clearing session.
+  - It does **not** read screen text outside system settings, does not record keystrokes, does not intercept passwords or sensitive data, and does not transmit any screen content.
+
+### 3.5. Notifications (`POST_NOTIFICATIONS`)
+- **Purpose:** Used solely to deliver local alerts (such as when recoverable storage exceeds user-defined limits or when a deep scan finishes).
+- **Privacy Assurance:** Notifications are triggered locally and can be toggled off at any time in Settings.
+
+### 3.6. Advertising ID (`com.google.android.gms.permission.AD_ID`)
+- **Purpose:** Used by Google Mobile Ads (AdMob) and OneSignal to serve advertisements and deliver relevant push notifications.
+- **Privacy Assurance:** Users can reset or delete their advertising identifier at any time through Android System Settings (*Settings > Google > Ads*).
 
 ---
 
-### 5. Data Retention & Deletion
-- Zero Cloud Storage: Because we do not upload or store any data on external servers, we hold no user data on our infrastructure.
-- User-Initiated File Deletion: When you delete duplicate photos, junk caches, or large files using CleanMyPhone, they are deleted directly from your device storage immediately.
-- App Uninstall / Data Clearing: Clearing app data or uninstalling CleanMyPhone permanently removes all local settings, scan caches, and app preferences.
+## 4. Third-Party Services & Analytics
+
+CleanMyPhone integrates trusted third-party SDKs to support app operations, measure stability, and deliver notifications:
+- **Google Mobile Ads (AdMob):** Used to display banner, interstitial, and rewarded ads to support free features. AdMob may process Advertising ID (`AD_ID`) and coarse device metrics in accordance with Google's Privacy Policy.
+- **Firebase Crashlytics & Analytics (Google LLC):** Used to monitor app stability, analyze crash stack traces, and measure user feature adoption to diagnose technical bugs.
+- **OneSignal:** Used to deliver optional push notifications, cleanup reminders, and storage alert messages.
+
+These service providers process data strictly in compliance with their respective privacy policies and Google Play Developer Program Policies.
 
 ---
 
-### 6. Security Safeguards
-- Safe Cleanup Basket: All files marked for cleanup are queued in a review basket before any permanent deletion occurs, preventing accidental data loss.
-- Local Sandbox Storage: App configurations and cached metadata are stored within the protected Android application sandbox directory.
-- Modern Android Hardening: Android 16/15/14 modern scoped storage guidelines, hardened R8/ProGuard obfuscation, and zero exported sensitive components.
+## 5. Data Retention & Deletion
+
+- **Zero Cloud Storage:** Because we do not upload or store any data on external servers, we hold no user data on our infrastructure.
+- **User-Initiated File Deletion:** When you delete duplicate photos, junk caches, or large files using CleanMyPhone, they are deleted directly from your device storage immediately.
+- **App Uninstall / Data Clearing:** Clearing app data or uninstalling CleanMyPhone permanently removes all local settings, scan caches, and app preferences.
 
 ---
 
-### 7. Children's Privacy (COPPA & Google Play Families Policy)
-CleanMyPhone is a general-purpose utility designed for general audiences. We do not knowingly collect, request, or solicit any personal information from children under the age of 13 (or under 16 in the European Union).
+## 6. Security Safeguards
+
+- **Safe Cleanup Basket:** All files marked for cleanup are queued in a review basket before any permanent deletion occurs, preventing accidental data loss.
+- **Local Sandbox Storage:** App configurations and cached metadata are stored within the protected Android application sandbox directory.
+- **Strict Android Security Guidelines:** We implement Android 16/15/14 modern scoped storage guidelines, hardened ProGuard/R8 obfuscation, and zero exported sensitive components.
 
 ---
 
-### 8. International Privacy Rights (GDPR & CCPA/CPRA)
-- GDPR (EEA): You maintain full access, control, and right of erasure over all data, which remains entirely on your device.
-- CCPA / CPRA (California): We do not sell or share personal information with third parties for monetary or other considerations.
+## 7. Children's Privacy (COPPA & Google Play Families Policy)
+
+CleanMyPhone is a general-purpose utility designed for general audiences. We do not knowingly collect, request, or solicit any personal information from children under the age of 13 (or under the age of 16 in the European Union). If you believe a child has provided us with personal information, please contact us immediately so we can take appropriate measures.
 
 ---
 
-### 9. Contact Us
-If you have questions regarding this Privacy Policy or our on-device data handling practices:
-- Developer Name: Mobile App Zone
-- Email: mobileplaystorework@gmail.com
+## 8. International Privacy Rights
+
+### 8.1. European Union (GDPR) Compliance
+If you reside in the European Economic Area (EEA), you have rights under the General Data Protection Regulation:
+- **Right to Access & Portability:** All your data remains on your device under your direct control.
+- **Right to Rectification & Erasure:** You can delete any indexed cache or app data at any time directly through the app or Android system settings.
+- **Right to Restrict Processing:** You can revoke storage or usage permissions at any time via Android Settings.
+
+### 8.2. California Consumer Privacy Act (CCPA / CPRA) Compliance
+If you are a California resident:
+- **We do not sell your personal information.**
+- **We do not share your personal information for cross-context behavioral advertising.**
+- **We do not collect sensitive personal consumer records.**
+
+---
+
+## 9. Changes to This Privacy Policy
+
+We may update our Privacy Policy periodically to reflect app updates, new Android OS features, or legal requirements. Any modifications will be posted on this page with an updated **Last Updated** date. We encourage you to review this policy periodically.
+
+---
+
+## 10. Contact Us
+
+If you have questions, feedback, or concerns regarding this Privacy Policy or our on-device data handling practices, please contact us at:
+
+- **Developer Name:** CleanMyPhone Development Team
+- **Email:** mobileplaystorework@gmail.com
+- **Repository:** https://github.com/azzadpandit1122/CleanMy-Phone
